@@ -1,0 +1,37 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card card body">
+        <img
+            width="300"
+            alt="Angular Logo"
+            src="https://static5.depositphotos.com/1039762/460/v/950/depositphotos_4604799-stock-illustration-weather-icon-set.jpg"
+            class="mx-auto"/>
+        <form (submit)="submitLocation(cityName, countryCode)">
+          <div class="form-group"> 
+            <input type="text" class="form-control" placeholder="City Name" #cityName>
+          </div>
+          <div class="form-group"> 
+           <input type="text" class="form-control" placeholder="Country Code" #countryCode>
+          </div>
+
+           <button class="btn btn-primary btn-block mt-2">
+             Get Weather
+           </button>
+        </form>
+      </div>
+     </div>
+    <div class="col-md-6">
+      <div *ngIf="weather" class=" card card-body">
+        <p>Temperature: {{weather.main.temp}}</p>
+        <p>Latitude: {{weather.coord.lat}}</p>
+        <p>Longitude: {{weather.coord.lon}}</p>
+        <p>Humidity: {{weather.main.humidity}}</p>
+        <p>Description: {{weather.weather[0].description}}</p>
+
+      </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
